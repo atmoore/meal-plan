@@ -631,7 +631,7 @@ function logMeal(mealName) {
 
 // Render week plan
 function renderWeekPlan() {
-    const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+    const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
     
     days.forEach(day => {
         const slot = document.querySelector(`[data-day="${day}"] .meal-slot`);
