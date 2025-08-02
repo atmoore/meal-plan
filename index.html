@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Austin & Lexie Weekly Meal Plan</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#60a5fa">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h1>Austin & Lexie Weekly Meal Plan</h1>
+            <div class="tabs">
+                <button class="tab active" data-tab="meals">
+                    <span>Meals</span>
+                </button>
+                <button class="tab" data-tab="plan">
+                    <span>This Week</span>
+                </button>
+                <button class="tab" data-tab="add">
+                    <span>Add Meal</span>
+                </button>
+                <button class="tab" data-tab="log">
+                    <span>Quick Log</span>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <!-- Meals Tab -->
+            <div id="meals" class="tab-content active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalMeals">25</div>
+                        <div class="stat-label">Total Meals</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="neverMade">0</div>
+                        <div class="stat-label">Never Made</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="recentMeals">0</div>
+                        <div class="stat-label">This Week</div>
+                    </div>
+                </div>
+                
+                <div class="search-filter">
+                    <div class="search-wrapper">
+                        <input type="text" id="searchMeals" placeholder="Search meals..." class="search-input">
+                    </div>
+                    <select id="filterCategory" class="filter-select">
+                        <option value="">All categories</option>
+                        <option value="regular">Regular meals</option>
+                        <option value="date-night">Date night</option>
+                    </select>
+                </div>
+                <div id="mealsList" class="meals-list"></div>
+            </div>
+
+            <!-- This Week Tab -->
+            <div id="plan" class="tab-content">
+                <div class="week-planner">
+                    <div class="day-plan" data-day="monday">
+                        <h3>Monday</h3>
+                        <div class="meal-slot" data-day="monday">
+                            <span class="placeholder">Tap to add meal</span>
+                        </div>
+                    </div>
+                    <div class="day-plan" data-day="tuesday">
+                        <h3>Tuesday</h3>
+                        <div class="meal-slot" data-day="tuesday">
+                            <span class="placeholder">Tap to add meal</span>
+                        </div>
+                    </div>
+                    <div class="day-plan" data-day="wednesday">
+                        <h3>Wednesday</h3>
+                        <div class="meal-slot" data-day="wednesday">
+                            <span class="placeholder">Tap to add meal</span>
+                        </div>
+                    </div>
+                    <div class="day-plan" data-day="thursday">
+                        <h3>Thursday</h3>
+                        <div class="meal-slot" data-day="thursday">
+                            <span class="placeholder">Tap to add meal</span>
+                        </div>
+                    </div>
+                    <div class="day-plan" data-day="friday">
+                        <h3>Friday</h3>
+                        <div class="meal-slot" data-day="friday">
+                            <span class="placeholder">Tap to add meal</span>
+                        </div>
+                    </div>
+                    <div class="day-plan" data-day="saturday">
+                        <h3>Saturday</h3>
+                        <div class="meal-slot" data-day="saturday">
+                            <span class="placeholder">Tap to add meal</span>
+                        </div>
+                    </div>
+                    <div class="day-plan" data-day="sunday">
+                        <h3>Sunday</h3>
+                        <div class="meal-slot" data-day="sunday">
+                            <span class="placeholder">Tap to add meal</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="shopping-controls">
+                    <select id="storeSelector" class="store-select">
+                        <option value="">All Stores</option>
+                        <option value="Trader Joe's">Trader Joe's</option>
+                        <option value="Sprouts">Sprouts</option>
+                        <option value="Walmart">Walmart</option>
+                        <option value="Target">Target</option>
+                        <option value="Fresh Market">Fresh Market</option>
+                        <option value="Publix">Publix</option>
+                    </select>
+                    <button id="generateShoppingList" class="primary-btn">
+                        Generate Shopping List
+                    </button>
+                </div>
+                <div id="shoppingList" class="shopping-list"></div>
+            </div>
+
+            <!-- Add Meal Tab -->
+            <div id="add" class="tab-content">
+                <div class="add-meal-form">
+                    <h3>Add New Meal</h3>
+                    <form id="addMealForm">
+                        <div class="form-group">
+                            <label for="mealName">Meal Name</label>
+                            <input type="text" id="mealName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mealCategory">Category</label>
+                            <select id="mealCategory" required>
+                                <option value="regular">Regular meal</option>
+                                <option value="date-night">Date night</option>
+                            </select>
+                        </div>
+
+                        <div class="ingredients-section">
+                            <h4>Ingredients by Store Section</h4>
+                            
+                            <div class="ingredient-category-form">
+                                <label>Meat & Seafood</label>
+                                <textarea id="meatIngredients" placeholder="Enter ingredients separated by commas"></textarea>
+                            </div>
+                            
+                            <div class="ingredient-category-form">
+                                <label>Produce</label>
+                                <textarea id="produceIngredients" placeholder="Enter ingredients separated by commas"></textarea>
+                            </div>
+                            
+                            <div class="ingredient-category-form">
+                                <label>Dairy & Bread</label>
+                                <textarea id="dairyIngredients" placeholder="Enter ingredients separated by commas"></textarea>
+                            </div>
+                            
+                            <div class="ingredient-category-form">
+                                <label>Frozen</label>
+                                <textarea id="frozenIngredients" placeholder="Enter ingredients separated by commas"></textarea>
+                            </div>
+                            
+                            <div class="ingredient-category-form">
+                                <label>Pantry & Condiments</label>
+                                <textarea id="pantryIngredients" placeholder="Enter ingredients separated by commas"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" id="clearForm" class="secondary-btn">Clear Form</button>
+                            <button type="submit" class="primary-btn">Add Meal</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Quick Log Tab -->
+            <div id="log" class="tab-content">
+                <div class="quick-actions">
+                    <h3>Quick Log</h3>
+                    <p>Tap a meal to mark as "made today"</p>
+                </div>
+                <div id="quickLogList" class="quick-log-list"></div>
+                <div class="recent-logs">
+                    <h4>Recent Activity</h4>
+                    <div id="recentActivity" class="activity-list"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Modal for meal selection -->
+        <div id="mealModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Select Meal</h3>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="modalMealsList"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for meal details -->
+        <div id="detailModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="detailMealName"></h3>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="detailMealInfo"></div>
+                    <div class="action-buttons">
+                        <button id="logMealBtn" class="primary-btn">
+                            Made This Today
+                        </button>
+                        <button id="addToPlanBtn" class="secondary-btn">
+                            Add to This Week
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
