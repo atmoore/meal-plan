@@ -637,6 +637,214 @@ main {
     margin-bottom: 0;
 }
 
+/* Quick Shopping Controls */
+.quick-shopping-controls {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.quick-shopping-controls .secondary-btn {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Danger Button */
+.danger-btn {
+    background: var(--danger-color);
+    color: var(--white);
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 48px;
+}
+
+.danger-btn:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(239, 68, 68, 0.25);
+}
+
+.share-btn {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow);
+    margin-left: 10px;
+}
+
+.share-btn:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.25);
+}
+
+/* Quick Shopping Modal */
+.quick-shopping-meals {
+    display: grid;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.quick-shopping-meal-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--gray-50);
+    border-radius: 12px;
+    border: 2px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.quick-shopping-meal-item:hover {
+    border-color: var(--primary-light);
+    background: #eff6ff;
+}
+
+.quick-shopping-meal-item.selected {
+    border-color: var(--primary-color);
+    background: var(--primary-light);
+}
+
+.quick-shopping-meal-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-color);
+}
+
+.modal-meal-actions {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--gray-200);
+}
+
+/* Restaurant Form */
+.add-restaurant-form {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(96, 165, 250, 0.08);
+    border: 2px solid #dbeafe;
+    margin-bottom: 2rem;
+}
+
+.add-restaurant-form h4 {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Restaurants List */
+.restaurants-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.restaurant-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(96, 165, 250, 0.08);
+    border: 2px solid #dbeafe;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(96, 165, 250, 0.15);
+    border-color: var(--primary-color);
+}
+
+.restaurant-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.restaurant-name {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--gray-900);
+    margin-bottom: 0.5rem;
+}
+
+.restaurant-cuisine {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 0.375rem 0.875rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.restaurant-details {
+    color: var(--gray-600);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.restaurant-location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.restaurant-notes {
+    font-style: italic;
+    color: var(--gray-500);
+}
+
+.restaurant-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray-200);
+}
+
+.restaurant-visited {
+    color: var(--gray-500);
+    font-size: 0.875rem;
+}
+
+.delete-restaurant {
+    background: none;
+    border: none;
+    color: var(--danger-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.delete-restaurant:hover {
+    background: rgba(239, 68, 68, 0.1);
+}
+
 /* Shopping List */
 .shopping-list {
     background: var(--white);

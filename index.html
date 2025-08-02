@@ -24,6 +24,9 @@
                 <button class="tab" data-tab="add">
                     <span>Add Meal</span>
                 </button>
+                <button class="tab" data-tab="date-night">
+                    <span>Date Night</span>
+                </button>
                 <button class="tab" data-tab="log">
                     <span>Quick Log</span>
                 </button>
@@ -121,6 +124,14 @@
                         Generate Shopping List
                     </button>
                 </div>
+                <div class="quick-shopping-controls">
+                    <button id="generateQuickList" class="secondary-btn">
+                        Quick Shopping List (No Weekly Plan)
+                    </button>
+                    <button id="shareShoppingList" class="share-btn" style="display: none;">
+                        📱 Share List
+                    </button>
+                </div>
                 <div id="shoppingList" class="shopping-list"></div>
             </div>
 
@@ -179,6 +190,46 @@
                 </div>
             </div>
 
+            <!-- Date Night Tab -->
+            <div id="date-night" class="tab-content">
+                <div class="quick-actions">
+                    <h3>Date Night Restaurants</h3>
+                    <p>Save your favorite restaurants for special occasions</p>
+                </div>
+                
+                <div class="add-restaurant-form">
+                    <h4>Add New Restaurant</h4>
+                    <form id="addRestaurantForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="restaurantName">Restaurant Name</label>
+                                <input type="text" id="restaurantName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="restaurantCuisine">Cuisine Type</label>
+                                <input type="text" id="restaurantCuisine" placeholder="Italian, Mexican, etc.">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="restaurantLocation">Location</label>
+                                <input type="text" id="restaurantLocation" placeholder="Address or area">
+                            </div>
+                            <div class="form-group">
+                                <label for="restaurantNotes">Notes</label>
+                                <input type="text" id="restaurantNotes" placeholder="Price range, favorites, etc.">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" id="clearRestaurantForm" class="secondary-btn">Clear</button>
+                            <button type="submit" class="primary-btn">Add Restaurant</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div id="restaurantsList" class="restaurants-list"></div>
+            </div>
+
             <!-- Quick Log Tab -->
             <div id="log" class="tab-content">
                 <div class="quick-actions">
@@ -193,15 +244,42 @@
             </div>
         </main>
 
-        <!-- Modal for meal selection -->
+        <!-- Modal for meal selection and management -->
         <div id="mealModal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3>Select Meal</h3>
+                    <h3 id="modalMealTitle">Select Meal</h3>
                     <button class="close-modal">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div id="modalMealsList"></div>
+                    <div id="modalActions" class="modal-meal-actions" style="display: none;">
+                        <button id="removeMealBtn" class="danger-btn">
+                            Remove Meal
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for quick shopping list -->
+        <div id="quickShoppingModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Select Meals for Shopping List</h3>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Choose which meals you want to include in your shopping list:</p>
+                    <div id="quickShoppingMealsList" class="quick-shopping-meals"></div>
+                    <div class="modal-actions">
+                        <button id="generateSelectedList" class="primary-btn">
+                            Generate Shopping List
+                        </button>
+                        <button class="secondary-btn close-modal">
+                            Cancel
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

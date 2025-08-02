@@ -2,29 +2,30 @@
 const meals = [
     { 
         name: "Steak & Potatoes", 
-        ingredients: "Ribeye or sirloin steak, russet potatoes, fresh rosemary, garlic, butter, olive oil",
-        meat: ["Ribeye or sirloin steak"],
-        produce: ["Russet potatoes", "Fresh rosemary", "Garlic"],
+        ingredients: "Any steak, sweet potatoes or regular potatoes, fresh rosemary, garlic, butter, olive oil",
+        meat: ["Any steak (ribeye, sirloin, filet, etc.)"],
+        produce: ["Sweet potatoes or russet potatoes", "Fresh rosemary", "Garlic"],
         dairy: ["Butter"],
         pantry: ["Olive oil", "Salt", "Black pepper"],
         prepTime: 30,
         category: "date-night",
         storeNotes: {
-            "Fresh Market": "Best steaks - prime grade ribeye",
-            "Publix": "Good quality, often on BOGO",
-            "Sprouts": "Grass-fed options available",
+            "Fresh Market": "Best steaks - prime grade options available",
+            "Publix": "Good quality steaks, often on BOGO",
+            "Sprouts": "Grass-fed steak options available",
             "Walmart": "Great Value steaks, budget-friendly",
-            "Target": "Good & Gather, decent quality"
+            "Target": "Good & Gather steaks, decent quality"
         }
     },
     { 
         name: "Panko Chicken", 
-        ingredients: "Chicken breast, panko breadcrumbs, eggs, flour, parmesan cheese, lemon",
-        meat: ["Chicken breast"],
-        produce: ["Lemon", "Garlic"],
-        dairy: ["Eggs", "Parmesan cheese"],
-        pantry: ["Panko breadcrumbs", "All-purpose flour", "Olive oil", "Salt", "Black pepper", "Garlic powder"],
-        prepTime: 25 
+        ingredients: "Frozen diced chicken, flour, eggs, panko breadcrumbs, rice, spicy mayo sauce",
+        meat: ["Frozen diced chicken (preferred)"],
+        produce: [],
+        dairy: ["Eggs", "Mayonnaise"],
+        frozen: ["Frozen diced chicken (if using)"],
+        pantry: ["All-purpose flour", "Panko breadcrumbs", "Rice", "Rice vinegar", "Splenda", "Sriracha"],
+        prepTime: 20 
     },
     { 
         name: "Lou's Pizza", 
@@ -45,10 +46,10 @@ const meals = [
     },
     { 
         name: "Orange Chicken", 
-        ingredients: "Frozen orange chicken",
+        ingredients: "Frozen orange chicken, rice",
         frozen: ["Trader Joe's Mandarin Orange Chicken", "Target Good & Gather Orange Chicken", "Walmart Great Value Orange Chicken"],
         produce: ["Green onions", "Sesame seeds (optional)"],
-        pantry: ["White rice", "Jasmine rice"],
+        pantry: ["White rice or Jasmine rice"],
         meat: [],
         dairy: [],
         prepTime: 15,
@@ -183,12 +184,13 @@ const meals = [
     },
     { 
         name: "Spinach & Artichoke Chicken", 
-        ingredients: "Chicken breast, fresh spinach, artichoke hearts, cream cheese, mozzarella, parmesan, garlic",
-        meat: ["Chicken breast"],
-        produce: ["Fresh spinach", "Garlic"],
-        dairy: ["Cream cheese", "Mozzarella cheese", "Parmesan cheese"],
-        pantry: ["Artichoke hearts (canned)", "Olive oil", "Salt", "Black pepper", "Italian seasoning"],
-        prepTime: 30 
+        ingredients: "Chicken tenders, frozen spinach, artichoke hearts, cream cheese, Greek yogurt, mozzarella, parmesan, tortilla chips",
+        meat: ["Chicken tenders or chicken breasts (2 lbs)"],
+        produce: ["Garlic (3 cloves)"],
+        dairy: ["Cream cheese (4 oz)", "Plain Greek yogurt (3/4 cup)", "Grated Parmesan cheese (1/2 cup)", "Shredded mozzarella cheese (1 cup)"],
+        frozen: ["Frozen chopped spinach (10 oz)"],
+        pantry: ["Canned artichoke hearts (14 oz)", "Olive oil (1 tsp)", "Kosher salt (1.5 tsp)", "Ground black pepper (3/4 tsp)", "Onion powder (1/2 tsp)", "Garlic powder (1.5 tsp, alternative)", "Tortilla chips"],
+        prepTime: 35 
     },
     { 
         name: "Asian Chicken Tacos", 
@@ -200,13 +202,13 @@ const meals = [
         prepTime: 25 
     },
     { 
-        name: "Healthy Pasta", 
-        ingredients: "Whole wheat pasta, cherry tomatoes, fresh spinach, fresh basil, garlic, parmesan cheese, olive oil, lemon",
-        meat: [],
-        produce: ["Cherry tomatoes", "Fresh spinach", "Fresh basil", "Garlic", "Lemon"],
-        dairy: ["Parmesan cheese"],
-        pantry: ["Whole wheat pasta", "Olive oil", "Red pepper flakes", "Salt", "Black pepper"],
-        prepTime: 15 
+        name: "Skinny Pasta", 
+        ingredients: "Pasta, broccoli, chicken breast, alfredo sauce with cream cheese and parmesan",
+        meat: ["Chicken breasts (2 medium)"],
+        produce: ["Broccoli florets (2 cups)", "Onion (1/2)", "Garlic (5-6 cloves)"],
+        dairy: ["Whole milk (1 cup)", "Cream cheese (2 oz)", "Freshly-grated Parmesan cheese (1/2 cup)", "Butter (optional)"],
+        pantry: ["Pasta (8-10 oz)", "Olive oil (2 tbsp total)", "Garlic powder (1/2 tsp)", "Paprika (1/2 tsp)", "Italian seasoning (1/2 tsp)", "All-purpose flour (3 tbsp)", "Chicken stock (1 cup)", "Salt", "Black pepper"],
+        prepTime: 25 
     },
     { 
         name: "Parmesan Crusted Sheet Pan Dinner", 
@@ -218,13 +220,13 @@ const meals = [
         prepTime: 35 
     },
     { 
-        name: "BBQ Chicken Sweet Bowls", 
-        ingredients: "Chicken breast, sweet potatoes, quinoa, corn, black beans, avocado, lime, BBQ sauce",
-        meat: ["Chicken breast"],
-        produce: ["Sweet potatoes", "Corn", "Avocado", "Lime", "Cilantro"],
-        dairy: [],
-        pantry: ["Quinoa", "Black beans (canned)", "BBQ sauce", "Cumin", "Paprika", "Olive oil", "Salt", "Black pepper"],
-        prepTime: 30 
+        name: "BBQ Chicken Sweet Potato Bowl", 
+        ingredients: "Chicken tenders, sweet potatoes, BBQ sauce, coleslaw mix, red onion, cilantro, Greek yogurt, lime, hot honey, avocado",
+        meat: ["Chicken tenders (6-8 pieces)"],
+        produce: ["Sweet potatoes (2-4)", "Coleslaw mix (1/2 bag)", "Red onion (1/4)", "Cilantro (1 bunch)", "Lime (1 for juice and zest)", "Avocado"],
+        dairy: ["Greek yogurt (2 heaping tbsp)"],
+        pantry: ["BBQ sauce (8.5 oz bottle, Primal Kitchen preferred)", "Hot honey"],
+        prepTime: 35 
     },
     { 
         name: "Calzone", 
@@ -255,12 +257,12 @@ const meals = [
     },
     { 
         name: "Burger Bowl", 
-        ingredients: "Ground beef, romaine lettuce, tomatoes, cheese, onion, pickles, sweet potatoes, special sauce",
-        meat: ["Ground beef (80/20)"],
-        produce: ["Romaine lettuce", "Tomatoes", "Onion", "Sweet potatoes"],
-        dairy: ["Cheese slices"],
-        pantry: ["Pickles", "Ketchup", "Mayonnaise", "Mustard", "Worcestershire sauce", "Olive oil", "Salt", "Black pepper"],
-        prepTime: 20 
+        ingredients: "Ground beef, butter lettuce, cherry tomatoes, sweet onion, pickles, bacon, avocado, special sauce ingredients",
+        meat: ["Lean ground beef (1 lb)", "Bacon (4 pieces)"],
+        produce: ["Butter lettuce (2-4 cups)", "Cherry tomatoes (1 cup)", "Sweet yellow onion (1 large)", "Purple onion (2-4 slices)", "Avocado (1, optional)", "Dill pickles"],
+        dairy: ["Mayonnaise (1/2 cup)"],
+        pantry: ["Ketchup (1/4 cup)", "Pickle juice (1/2 tsp)", "Paprika (1/4 tsp)", "Garlic powder (1 tsp total)", "Onion powder (1/2 tsp)", "Kosher salt", "Black pepper", "Soy sauce (1/2 tsp)", "Rice vinegar (1/2 tsp)", "Extra virgin olive oil (1 tbsp)", "Burger pickles (8 pieces)"],
+        prepTime: 25 
     }
 ];
 
@@ -268,6 +270,7 @@ const meals = [
 let mealData = {};
 let weekPlan = {};
 let activityLog = [];
+let restaurants = [];
 let currentModalTarget = null;
 
 // Initialize app
@@ -276,6 +279,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeApp();
     updateStats();
     renderMeals();
+    renderRestaurants();
     renderWeekPlan();
     renderQuickLog();
     renderActivity();
@@ -297,6 +301,7 @@ function loadData() {
     const savedMealData = localStorage.getItem('dinnerPlannerMeals');
     const savedWeekPlan = localStorage.getItem('dinnerPlannerWeek');
     const savedActivity = localStorage.getItem('dinnerPlannerActivity');
+    const savedRestaurants = localStorage.getItem('dinnerPlannerRestaurants');
     
     if (savedMealData) {
         mealData = JSON.parse(savedMealData);
@@ -319,6 +324,10 @@ function loadData() {
     if (savedActivity) {
         activityLog = JSON.parse(savedActivity);
     }
+    
+    if (savedRestaurants) {
+        restaurants = JSON.parse(savedRestaurants);
+    }
 }
 
 // Save data to localStorage
@@ -326,6 +335,7 @@ function saveData() {
     localStorage.setItem('dinnerPlannerMeals', JSON.stringify(mealData));
     localStorage.setItem('dinnerPlannerWeek', JSON.stringify(weekPlan));
     localStorage.setItem('dinnerPlannerActivity', JSON.stringify(activityLog));
+    localStorage.setItem('dinnerPlannerRestaurants', JSON.stringify(restaurants));
 }
 
 // Initialize event listeners
@@ -356,6 +366,9 @@ function initializeApp() {
     
     // Shopping list generation
     document.getElementById('generateShoppingList').addEventListener('click', generateShoppingList);
+    document.getElementById('generateQuickList').addEventListener('click', showQuickShoppingModal);
+    document.getElementById('generateSelectedList').addEventListener('click', generateSelectedShoppingList);
+    document.getElementById('shareShoppingList').addEventListener('click', shareShoppingList);
     
     // Modal actions
     document.getElementById('logMealBtn').addEventListener('click', function() {
@@ -379,6 +392,22 @@ function initializeApp() {
     });
     
     document.getElementById('clearForm').addEventListener('click', clearAddMealForm);
+    
+    // Restaurant form
+    document.getElementById('addRestaurantForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        addNewRestaurant();
+    });
+    
+    document.getElementById('clearRestaurantForm').addEventListener('click', clearRestaurantForm);
+    
+    // Remove meal functionality
+    document.getElementById('removeMealBtn').addEventListener('click', function() {
+        if (currentModalTarget) {
+            removeMealFromPlan(currentModalTarget);
+        }
+        closeModal();
+    });
 }
 
 // Tab switching
@@ -420,20 +449,15 @@ function renderMeals() {
     const categoryFilter = document.getElementById('filterCategory').value;
     const container = document.getElementById('mealsList');
     
-    // Filter and sort meals
+    // Filter and sort meals alphabetically - show ALL meals
     let filteredMeals = Object.values(mealData).filter(meal => {
         const matchesSearch = meal.name.toLowerCase().includes(searchTerm);
         const matchesCategory = !categoryFilter || meal.category === categoryFilter;
         return matchesSearch && matchesCategory;
     });
     
-    // Sort by last made (oldest first)
-    filteredMeals.sort((a, b) => {
-        if (!a.lastMade && !b.lastMade) return 0;
-        if (!a.lastMade) return -1;
-        if (!b.lastMade) return 1;
-        return new Date(a.lastMade) - new Date(b.lastMade);
-    });
+    // Sort alphabetically by name
+    filteredMeals.sort((a, b) => a.name.localeCompare(b.name));
     
     container.innerHTML = filteredMeals.map(meal => {
         const daysSinceLastMade = meal.lastMade ? 
@@ -469,6 +493,64 @@ function renderMeals() {
                     <span class="count">
                         ${meal.count} times
                     </span>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+// Render restaurants list
+function renderRestaurants() {
+    const container = document.getElementById('restaurantsList');
+    
+    if (restaurants.length === 0) {
+        container.innerHTML = `
+            <div style="text-align: center; padding: 2rem; color: var(--gray-500);">
+                <p>No restaurants saved yet!</p>
+                <p>Add your favorite restaurants above for easy date night planning.</p>
+            </div>
+        `;
+        return;
+    }
+    
+    // Sort by last visited (oldest first)
+    const sortedRestaurants = [...restaurants].sort((a, b) => {
+        if (!a.lastVisited && !b.lastVisited) return 0;
+        if (!a.lastVisited) return -1;
+        if (!b.lastVisited) return 1;
+        return new Date(a.lastVisited) - new Date(b.lastVisited);
+    });
+    
+    container.innerHTML = sortedRestaurants.map((restaurant, index) => {
+        const daysSinceVisited = restaurant.lastVisited ? 
+            Math.floor((Date.now() - new Date(restaurant.lastVisited)) / (1000 * 60 * 60 * 24)) : null;
+        
+        const lastVisitedText = daysSinceVisited === null ? 'Never visited' : 
+            daysSinceVisited === 0 ? 'Visited today' : `Visited ${daysSinceVisited} days ago`;
+        
+        return `
+            <div class="restaurant-card" onclick="visitRestaurant(${index})">
+                <div class="restaurant-header">
+                    <div>
+                        <div class="restaurant-name">${restaurant.name}</div>
+                        ${restaurant.cuisine ? `<span class="restaurant-cuisine">${restaurant.cuisine}</span>` : ''}
+                    </div>
+                </div>
+                <div class="restaurant-details">
+                    ${restaurant.location ? `
+                        <div class="restaurant-location">
+                            📍 ${restaurant.location}
+                        </div>
+                    ` : ''}
+                    ${restaurant.notes ? `
+                        <div class="restaurant-notes">${restaurant.notes}</div>
+                    ` : ''}
+                </div>
+                <div class="restaurant-actions">
+                    <span class="restaurant-visited">${lastVisitedText}</span>
+                    <button class="delete-restaurant" onclick="event.stopPropagation(); deleteRestaurant(${index})" title="Delete restaurant">
+                        🗑️
+                    </button>
                 </div>
             </div>
         `;
@@ -542,6 +624,7 @@ function logMeal(mealName) {
     saveData();
     updateStats();
     renderMeals();
+    renderRestaurants();
     renderQuickLog();
     renderActivity();
 }
@@ -570,12 +653,37 @@ function renderWeekPlan() {
 function showMealSelector(day) {
     currentModalTarget = day;
     const container = document.getElementById('modalMealsList');
+    const modalActions = document.getElementById('modalActions');
+    const modalTitle = document.getElementById('modalMealTitle');
     
-    container.innerHTML = Object.values(mealData).map(meal => `
-        <div class="quick-log-item" onclick="addMealToPlan('${day}', '${meal.name}')">
-            ${meal.name}
-        </div>
-    `).join('');
+    // Check if day already has a meal
+    const existingMeal = weekPlan[day];
+    
+    if (existingMeal) {
+        // Show remove option for existing meal
+        modalTitle.textContent = `${day.charAt(0).toUpperCase() + day.slice(1)} - ${existingMeal}`;
+        container.innerHTML = `
+            <div class="quick-log-item">
+                <strong>Current meal: ${existingMeal}</strong>
+            </div>
+        `;
+        modalActions.style.display = 'block';
+    } else {
+        // Show meal selection including Date Night option
+        modalTitle.textContent = `Select Meal for ${day.charAt(0).toUpperCase() + day.slice(1)}`;
+        container.innerHTML = `
+            <div class="quick-log-item" onclick="addMealToPlan('${day}', 'Date Night')" style="background: var(--primary-light); border-color: var(--primary-color);">
+                <strong>🌹 Date Night</strong>
+                <small style="display: block; margin-top: 0.5rem; opacity: 0.8;">Go to a restaurant</small>
+            </div>
+            ${Object.values(mealData).sort((a, b) => a.name.localeCompare(b.name)).map(meal => `
+                <div class="quick-log-item" onclick="addMealToPlan('${day}', '${meal.name}')">
+                    ${meal.name}
+                </div>
+            `).join('')}
+        `;
+        modalActions.style.display = 'none';
+    }
     
     document.getElementById('mealModal').classList.add('active');
 }
@@ -679,6 +787,14 @@ function generateShoppingList() {
     }
     
     document.getElementById('shoppingList').innerHTML = shoppingHTML;
+    
+    // Show share button if there's content to share
+    const shareButton = document.getElementById('shareShoppingList');
+    if (Object.values(shoppingCategories).some(category => category.size > 0)) {
+        shareButton.style.display = 'inline-block';
+    } else {
+        shareButton.style.display = 'none';
+    }
 }
 
 // Render quick log
@@ -786,6 +902,7 @@ function addNewMeal() {
     saveData();
     updateStats();
     renderMeals();
+    renderRestaurants();
     
     // Clear form and switch to meals tab
     clearAddMealForm();
@@ -796,4 +913,354 @@ function addNewMeal() {
 
 function clearAddMealForm() {
     document.getElementById('addMealForm').reset();
+}
+
+// Remove meal from weekly plan
+function removeMealFromPlan(day) {
+    delete weekPlan[day];
+    saveData();
+    renderWeekPlan();
+}
+
+// Show quick shopping modal
+function showQuickShoppingModal() {
+    const container = document.getElementById('quickShoppingMealsList');
+    
+    container.innerHTML = Object.values(mealData).sort((a, b) => a.name.localeCompare(b.name)).map(meal => `
+        <div class="quick-shopping-meal-item" onclick="toggleMealSelection(this, '${meal.name}')">
+            <input type="checkbox" id="meal-${meal.name.replace(/\s+/g, '-')}" />
+            <label for="meal-${meal.name.replace(/\s+/g, '-')}">${meal.name}</label>
+        </div>
+    `).join('');
+    
+    document.getElementById('quickShoppingModal').classList.add('active');
+}
+
+// Toggle meal selection in quick shopping
+function toggleMealSelection(element, mealName) {
+    const checkbox = element.querySelector('input[type="checkbox"]');
+    checkbox.checked = !checkbox.checked;
+    element.classList.toggle('selected', checkbox.checked);
+}
+
+// Generate shopping list from selected meals
+function generateSelectedShoppingList() {
+    const selectedMeals = [];
+    const checkboxes = document.querySelectorAll('#quickShoppingMealsList input[type="checkbox"]:checked');
+    
+    checkboxes.forEach(checkbox => {
+        const mealItem = checkbox.closest('.quick-shopping-meal-item');
+        const mealName = mealItem.querySelector('label').textContent;
+        selectedMeals.push(mealName);
+    });
+    
+    if (selectedMeals.length === 0) {
+        alert('Please select at least one meal');
+        return;
+    }
+    
+    generateShoppingListFromMeals(selectedMeals);
+    closeModal();
+}
+
+// Generate shopping list from specific meals
+function generateShoppingListFromMeals(mealNames) {
+    const selectedStore = document.getElementById('storeSelector').value;
+    
+    const shoppingCategories = {
+        meat: new Set(),
+        produce: new Set(),
+        dairy: new Set(),
+        frozen: new Set(),
+        pantry: new Set()
+    };
+    
+    const storeNotes = [];
+    
+    mealNames.forEach(mealName => {
+        const meal = mealData[mealName];
+        if (meal) {
+            // Add ingredients from each category
+            Object.keys(shoppingCategories).forEach(category => {
+                if (meal[category]) {
+                    meal[category].forEach(ingredient => {
+                        shoppingCategories[category].add(ingredient);
+                    });
+                }
+            });
+            
+            // Collect store-specific notes
+            if (selectedStore && meal.storeNotes && meal.storeNotes[selectedStore]) {
+                storeNotes.push({
+                    meal: meal.name,
+                    note: meal.storeNotes[selectedStore]
+                });
+            }
+        }
+    });
+    
+    const categoryNames = {
+        meat: 'Meat & Seafood',
+        produce: 'Produce',
+        dairy: 'Dairy & Bread',
+        frozen: 'Frozen',
+        pantry: 'Pantry & Condiments'
+    };
+    
+    let shoppingHTML = `<h4>Shopping List - Selected Meals</h4>`;
+    shoppingHTML += `<p><strong>Meals:</strong> ${mealNames.join(', ')}</p>`;
+    
+    if (selectedStore) {
+        shoppingHTML += `<div class="store-header"><h5>${selectedStore} - Specific Recommendations</h5></div>`;
+    }
+    
+    Object.keys(shoppingCategories).forEach(category => {
+        const items = Array.from(shoppingCategories[category]);
+        if (items.length > 0) {
+            shoppingHTML += `
+                <div class="shopping-category">
+                    <h5>${categoryNames[category]}</h5>
+                    <ul>
+                        ${items.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+        }
+    });
+    
+    // Add store-specific notes
+    if (storeNotes.length > 0) {
+        shoppingHTML += `
+            <div class="store-notes">
+                <h5>${selectedStore} Tips</h5>
+                <div class="notes-list">
+                    ${storeNotes.map(note => `
+                        <div class="store-note">
+                            <strong>${note.meal}:</strong> ${note.note}
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    }
+    
+    if (Object.values(shoppingCategories).every(category => category.size === 0)) {
+        shoppingHTML += '<p>No ingredients needed!</p>';
+    }
+    
+    document.getElementById('shoppingList').innerHTML = shoppingHTML;
+    
+    // Show share button if there's content to share
+    const shareButton = document.getElementById('shareShoppingList');
+    if (Object.values(shoppingCategories).some(category => category.size > 0)) {
+        shareButton.style.display = 'inline-block';
+    } else {
+        shareButton.style.display = 'none';
+    }
+}
+
+// Add new restaurant
+function addNewRestaurant() {
+    const name = document.getElementById('restaurantName').value.trim();
+    const cuisine = document.getElementById('restaurantCuisine').value.trim();
+    const location = document.getElementById('restaurantLocation').value.trim();
+    const notes = document.getElementById('restaurantNotes').value.trim();
+    
+    if (!name) {
+        alert('Please enter restaurant name');
+        return;
+    }
+    
+    const newRestaurant = {
+        name,
+        cuisine,
+        location,
+        notes,
+        lastVisited: null,
+        visitCount: 0
+    };
+    
+    restaurants.push(newRestaurant);
+    saveData();
+    renderRestaurants();
+    clearRestaurantForm();
+    
+    alert(`Added "${name}" to your restaurants!`);
+}
+
+// Clear restaurant form
+function clearRestaurantForm() {
+    document.getElementById('addRestaurantForm').reset();
+}
+
+// Visit restaurant (mark as visited today)
+function visitRestaurant(index) {
+    const today = new Date().toISOString().split('T')[0];
+    restaurants[index].lastVisited = today;
+    restaurants[index].visitCount++;
+    
+    // Add to activity log
+    activityLog.unshift({
+        date: today,
+        meal: `${restaurants[index].name} (Restaurant)`,
+        action: 'Visited'
+    });
+    
+    // Keep only last 20 activities
+    activityLog = activityLog.slice(0, 20);
+    
+    saveData();
+    renderRestaurants();
+    renderActivity();
+    
+    alert(`Marked "${restaurants[index].name}" as visited today!`);
+}
+
+// Delete restaurant
+function deleteRestaurant(index) {
+    const restaurant = restaurants[index];
+    if (confirm(`Delete "${restaurant.name}" from your restaurants?`)) {
+        restaurants.splice(index, 1);
+        saveData();
+        renderRestaurants();
+    }
+}
+
+// Share shopping list via text
+function shareShoppingList() {
+    const shoppingListElement = document.getElementById('shoppingList');
+    if (!shoppingListElement.innerHTML || shoppingListElement.innerHTML.includes('No ingredients needed!')) {
+        alert('Generate a shopping list first!');
+        return;
+    }
+    
+    // Extract text content from the shopping list
+    let shareText = '🛒 GROCERY LIST\n\n';
+    
+    // Get the planned meals or selected meals info
+    const plannedMeals = Object.values(weekPlan).filter(meal => meal);
+    if (plannedMeals.length > 0) {
+        shareText += `📅 This Week's Meals:\n${plannedMeals.join(', ')}\n\n`;
+    }
+    
+    // Extract shopping categories
+    const categories = shoppingListElement.querySelectorAll('.shopping-category');
+    categories.forEach(category => {
+        const categoryTitle = category.querySelector('h5').textContent;
+        const items = Array.from(category.querySelectorAll('li')).map(li => li.textContent);
+        
+        shareText += `${getCategoryEmoji(categoryTitle)} ${categoryTitle.toUpperCase()}:\n`;
+        items.forEach(item => {
+            shareText += `• ${item}\n`;
+        });
+        shareText += '\n';
+    });
+    
+    // Add store notes if available
+    const storeNotes = shoppingListElement.querySelector('.store-notes');
+    if (storeNotes) {
+        const storeTitle = storeNotes.querySelector('h5').textContent;
+        shareText += `💡 ${storeTitle}:\n`;
+        const notes = storeNotes.querySelectorAll('.store-note');
+        notes.forEach(note => {
+            shareText += `• ${note.textContent}\n`;
+        });
+        shareText += '\n';
+    }
+    
+    shareText += '📱 Generated by Austin & Lexie\'s Meal Planner';
+    
+    // Use Web Share API if available (mobile), otherwise copy to clipboard
+    if (navigator.share) {
+        navigator.share({
+            title: 'Grocery Shopping List',
+            text: shareText
+        }).then(() => {
+            console.log('Shared successfully');
+        }).catch((error) => {
+            console.log('Error sharing:', error);
+            fallbackShare(shareText);
+        });
+    } else {
+        fallbackShare(shareText);
+    }
+}
+
+// Fallback share method - copy to clipboard and show options
+function fallbackShare(text) {
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert('Shopping list copied to clipboard! You can now paste it into any messaging app.');
+        }).catch(() => {
+            showTextModal(text);
+        });
+    } else {
+        showTextModal(text);
+    }
+}
+
+// Show text in a modal for manual copying
+function showTextModal(text) {
+    const modalHTML = `
+        <div id="shareModal" class="modal active">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Share Shopping List</h3>
+                    <button class="close-modal" onclick="closeShareModal()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Copy the text below and paste it into your messaging app:</p>
+                    <textarea id="shareText" readonly style="width: 100%; height: 300px; font-family: monospace; font-size: 14px; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">${text}</textarea>
+                    <div class="modal-actions" style="margin-top: 15px;">
+                        <button onclick="selectAndCopy()" class="primary-btn">Select All & Copy</button>
+                        <button onclick="closeShareModal()" class="secondary-btn">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Remove existing share modal if any
+    const existingModal = document.getElementById('shareModal');
+    if (existingModal) {
+        existingModal.remove();
+    }
+    
+    // Add modal to page
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+}
+
+// Helper function to get emoji for category
+function getCategoryEmoji(categoryName) {
+    const emojiMap = {
+        'Meat & Seafood': '🥩',
+        'Produce': '🥬',
+        'Dairy & Bread': '🥛',
+        'Frozen': '🧊',
+        'Pantry & Condiments': '🥫'
+    };
+    return emojiMap[categoryName] || '📋';
+}
+
+// Close share modal
+function closeShareModal() {
+    const modal = document.getElementById('shareModal');
+    if (modal) {
+        modal.remove();
+    }
+}
+
+// Select all text and copy
+function selectAndCopy() {
+    const textarea = document.getElementById('shareText');
+    textarea.select();
+    textarea.setSelectionRange(0, 99999); // For mobile devices
+    
+    try {
+        document.execCommand('copy');
+        alert('Shopping list copied to clipboard!');
+        closeShareModal();
+    } catch (err) {
+        alert('Please manually select and copy the text above.');
+    }
 }
