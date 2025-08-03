@@ -273,6 +273,26 @@ let activityLog = [];
 let restaurants = [];
 let currentModalTarget = null;
 
+// Helper functions for timezone-safe date handling
+function getTodayDateString() {
+    const today = new Date();
+    return today.getFullYear() + '-' + 
+        String(today.getMonth() + 1).padStart(2, '0') + '-' + 
+        String(today.getDate()).padStart(2, '0');
+}
+
+function parseLocalDate(dateString) {
+    const [year, month, day] = dateString.split('-').map(Number);
+    return new Date(year, month - 1, day); // month is 0-indexed
+}
+
+function daysSinceDate(dateString) {
+    if (!dateString) return null;
+    const targetDate = parseLocalDate(dateString);
+    const now = new Date();
+    return Math.floor((now - targetDate) / (1000 * 60 * 60 * 24));
+}
+
 // Initialize app
 document.addEventListener('DOMContentLoaded', function() {
     loadData();
@@ -435,7 +455,7 @@ function updateStats() {
     oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
     const recentMeals = Object.values(mealData).filter(meal => {
         if (!meal.lastMade) return false;
-        return new Date(meal.lastMade + 'T12:00:00') > oneWeekAgo;
+        return parseLocalDate(meal.lastMade) > oneWeekAgo;
     }).length;
     
     document.getElementById('totalMeals').textContent = totalMeals;
@@ -460,8 +480,7 @@ function renderMeals() {
     filteredMeals.sort((a, b) => a.name.localeCompare(b.name));
     
     container.innerHTML = filteredMeals.map(meal => {
-        const daysSinceLastMade = meal.lastMade ? 
-            Math.floor((Date.now() - new Date(meal.lastMade + 'T12:00:00')) / (1000 * 60 * 60 * 24)) : null;
+        const daysSinceLastMade = daysSinceDate(meal.lastMade);
         
         let cardClass = 'meal-card';
         let lastMadeText = 'Never made';
@@ -518,12 +537,11 @@ function renderRestaurants() {
         if (!a.lastVisited && !b.lastVisited) return 0;
         if (!a.lastVisited) return -1;
         if (!b.lastVisited) return 1;
-        return new Date(a.lastVisited + 'T12:00:00') - new Date(b.lastVisited + 'T12:00:00');
+        return parseLocalDate(a.lastVisited) - parseLocalDate(b.lastVisited);
     });
     
     container.innerHTML = sortedRestaurants.map((restaurant, index) => {
-        const daysSinceVisited = restaurant.lastVisited ? 
-            Math.floor((Date.now() - new Date(restaurant.lastVisited + 'T12:00:00')) / (1000 * 60 * 60 * 24)) : null;
+        const daysSinceVisited = daysSinceDate(restaurant.lastVisited);
         
         const lastVisitedText = daysSinceVisited === null ? 'Never visited' : 
             daysSinceVisited === 0 ? 'Visited today' : `Visited ${daysSinceVisited} days ago`;
@@ -593,7 +611,7 @@ function showMealDetails(mealName) {
                 <span>Made <strong>${meal.count} times</strong></span>
             </div>
             <div class="stat-item">
-                <span>Last made: <strong>${meal.lastMade ? new Date(meal.lastMade + 'T12:00:00').toLocaleDateString() : 'Never'}</strong></span>
+                <span>Last made: <strong>${meal.lastMade ? parseLocalDate(meal.lastMade).toLocaleDateString() : 'Never'}</strong></span>
             </div>
             ${categoryBadge ? `<div class="stat-item">${categoryBadge}</div>` : ''}
         </div>
@@ -607,13 +625,13 @@ function showMealDetails(mealName) {
 
 // Log meal as made today
 function logMeal(mealName) {
-    const today = new Date().toISOString().split('T')[0];
-    mealData[mealName].lastMade = today;
+    const todayString = getTodayDateString();
+    mealData[mealName].lastMade = todayString;
     mealData[mealName].count++;
     
     // Add to activity log
     activityLog.unshift({
-        date: today,
+        date: todayString,
         meal: mealName,
         action: 'Made'
     });
@@ -806,12 +824,11 @@ function renderQuickLog() {
         if (!a.lastMade && !b.lastMade) return 0;
         if (!a.lastMade) return -1;
         if (!b.lastMade) return 1;
-        return new Date(a.lastMade + 'T12:00:00') - new Date(b.lastMade + 'T12:00:00');
+        return parseLocalDate(a.lastMade) - parseLocalDate(b.lastMade);
     });
     
     container.innerHTML = sortedMeals.slice(0, 10).map(meal => {
-        const daysSince = meal.lastMade ? 
-            Math.floor((Date.now() - new Date(meal.lastMade + 'T12:00:00')) / (1000 * 60 * 60 * 24)) : null;
+        const daysSince = daysSinceDate(meal.lastMade);
         const lastMadeText = daysSince === null ? 'Never made' : 
             daysSince === 0 ? 'Today' : `${daysSince} days ago`;
         
@@ -834,8 +851,8 @@ function renderActivity() {
     }
     
     container.innerHTML = activityLog.slice(0, 5).map(activity => {
-        // Fix timezone issue by parsing date properly
-        const activityDate = new Date(activity.date + 'T12:00:00');
+        // Use local date parsing for proper display
+        const activityDate = parseLocalDate(activity.date);
         return `
             <div class="activity-item">
                 ${activity.action} <strong>${activity.meal}</strong> on ${activityDate.toLocaleDateString()}
@@ -1099,13 +1116,13 @@ function clearRestaurantForm() {
 
 // Visit restaurant (mark as visited today)
 function visitRestaurant(index) {
-    const today = new Date().toISOString().split('T')[0];
-    restaurants[index].lastVisited = today;
+    const todayString = getTodayDateString();
+    restaurants[index].lastVisited = todayString;
     restaurants[index].visitCount++;
     
     // Add to activity log
     activityLog.unshift({
-        date: today,
+        date: todayString,
         meal: `${restaurants[index].name} (Restaurant)`,
         action: 'Visited'
     });
