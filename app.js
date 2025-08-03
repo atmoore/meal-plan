@@ -435,7 +435,7 @@ function updateStats() {
     oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
     const recentMeals = Object.values(mealData).filter(meal => {
         if (!meal.lastMade) return false;
-        return new Date(meal.lastMade) > oneWeekAgo;
+        return new Date(meal.lastMade + 'T12:00:00') > oneWeekAgo;
     }).length;
     
     document.getElementById('totalMeals').textContent = totalMeals;
@@ -461,7 +461,7 @@ function renderMeals() {
     
     container.innerHTML = filteredMeals.map(meal => {
         const daysSinceLastMade = meal.lastMade ? 
-            Math.floor((Date.now() - new Date(meal.lastMade)) / (1000 * 60 * 60 * 24)) : null;
+            Math.floor((Date.now() - new Date(meal.lastMade + 'T12:00:00')) / (1000 * 60 * 60 * 24)) : null;
         
         let cardClass = 'meal-card';
         let lastMadeText = 'Never made';
@@ -518,12 +518,12 @@ function renderRestaurants() {
         if (!a.lastVisited && !b.lastVisited) return 0;
         if (!a.lastVisited) return -1;
         if (!b.lastVisited) return 1;
-        return new Date(a.lastVisited) - new Date(b.lastVisited);
+        return new Date(a.lastVisited + 'T12:00:00') - new Date(b.lastVisited + 'T12:00:00');
     });
     
     container.innerHTML = sortedRestaurants.map((restaurant, index) => {
         const daysSinceVisited = restaurant.lastVisited ? 
-            Math.floor((Date.now() - new Date(restaurant.lastVisited)) / (1000 * 60 * 60 * 24)) : null;
+            Math.floor((Date.now() - new Date(restaurant.lastVisited + 'T12:00:00')) / (1000 * 60 * 60 * 24)) : null;
         
         const lastVisitedText = daysSinceVisited === null ? 'Never visited' : 
             daysSinceVisited === 0 ? 'Visited today' : `Visited ${daysSinceVisited} days ago`;
@@ -806,12 +806,12 @@ function renderQuickLog() {
         if (!a.lastMade && !b.lastMade) return 0;
         if (!a.lastMade) return -1;
         if (!b.lastMade) return 1;
-        return new Date(a.lastMade) - new Date(b.lastMade);
+        return new Date(a.lastMade + 'T12:00:00') - new Date(b.lastMade + 'T12:00:00');
     });
     
     container.innerHTML = sortedMeals.slice(0, 10).map(meal => {
         const daysSince = meal.lastMade ? 
-            Math.floor((Date.now() - new Date(meal.lastMade)) / (1000 * 60 * 60 * 24)) : null;
+            Math.floor((Date.now() - new Date(meal.lastMade + 'T12:00:00')) / (1000 * 60 * 60 * 24)) : null;
         const lastMadeText = daysSince === null ? 'Never made' : 
             daysSince === 0 ? 'Today' : `${daysSince} days ago`;
         
