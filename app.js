@@ -593,7 +593,7 @@ function showMealDetails(mealName) {
                 <span>Made <strong>${meal.count} times</strong></span>
             </div>
             <div class="stat-item">
-                <span>Last made: <strong>${meal.lastMade ? new Date(meal.lastMade).toLocaleDateString() : 'Never'}</strong></span>
+                <span>Last made: <strong>${meal.lastMade ? new Date(meal.lastMade + 'T12:00:00').toLocaleDateString() : 'Never'}</strong></span>
             </div>
             ${categoryBadge ? `<div class="stat-item">${categoryBadge}</div>` : ''}
         </div>
@@ -833,11 +833,15 @@ function renderActivity() {
         return;
     }
     
-    container.innerHTML = activityLog.slice(0, 5).map(activity => `
-        <div class="activity-item">
-            ${activity.action} <strong>${activity.meal}</strong> on ${new Date(activity.date).toLocaleDateString()}
-        </div>
-    `).join('');
+    container.innerHTML = activityLog.slice(0, 5).map(activity => {
+        // Fix timezone issue by parsing date properly
+        const activityDate = new Date(activity.date + 'T12:00:00');
+        return `
+            <div class="activity-item">
+                ${activity.action} <strong>${activity.meal}</strong> on ${activityDate.toLocaleDateString()}
+            </div>
+        `;
+    }).join('');
 }
 
 // Close modal
